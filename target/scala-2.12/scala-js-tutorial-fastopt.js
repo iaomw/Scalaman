@@ -1340,251 +1340,6 @@ function $f_sci_VectorPointer__initFrom__sci_VectorPointer__I__V($thiz, that, de
   }
 }
 /** @constructor */
-function $c_Lmain_scala_HelloWorld$() {
-  $c_O.call(this)
-}
-$c_Lmain_scala_HelloWorld$.prototype = new $h_O();
-$c_Lmain_scala_HelloWorld$.prototype.constructor = $c_Lmain_scala_HelloWorld$;
-/** @constructor */
-function $h_Lmain_scala_HelloWorld$() {
-  /*<skip>*/
-}
-$h_Lmain_scala_HelloWorld$.prototype = $c_Lmain_scala_HelloWorld$.prototype;
-$c_Lmain_scala_HelloWorld$.prototype.init___ = (function() {
-  return this
-});
-$c_Lmain_scala_HelloWorld$.prototype.$$js$exported$meth$pathfinding__Lmain_scala_PathFindingOptions__O = (function(options) {
-  return this.pathfinding__Lmain_scala_PathFindingOptions__sjs_js_Array(options)
-});
-$c_Lmain_scala_HelloWorld$.prototype.pathfinding__Lmain_scala_PathFindingOptions__sjs_js_Array = (function(options) {
-  var array = options.mapTile;
-  var len = $uI(array.length);
-  var result = $newArrayObject($d_T.getArrayOf(), [len]);
-  var len$1 = result.u.length;
-  var i = 0;
-  var j = 0;
-  var x = $uI(array.length);
-  var x$1 = ((x < len$1) ? x : len$1);
-  var that = result.u.length;
-  var end = ((x$1 < that) ? x$1 : that);
-  while ((i < end)) {
-    var jsx$1 = j;
-    var index = i;
-    result.set(jsx$1, array[index]);
-    i = ((1 + i) | 0);
-    j = ((1 + j) | 0)
-  };
-  var origin = options.origin;
-  var destin = options.destin;
-  var originL = new $c_Lmain_scala_Location().init___I__I($uI(origin.x), $uI(origin.y));
-  var destinL = new $c_Lmain_scala_Location().init___I__I($uI(destin.x), $uI(destin.y));
-  var xs = this.pathfinding__AT__Lmain_scala_Location__Lmain_scala_Location__ALmain_scala_Location(result, originL, destinL);
-  var elems$2 = null;
-  elems$2 = [];
-  var x1 = xs.u.length;
-  switch (x1) {
-    case (-1): {
-      break
-    }
-  };
-  var i$1 = 0;
-  var len$2 = xs.u.length;
-  while ((i$1 < len$2)) {
-    var index$1 = i$1;
-    var arg1 = xs.get(index$1);
-    var sample = $as_Lmain_scala_Location(arg1);
-    var elem = sample.toJSObject__Lmain_scala_LocationOptions();
-    var unboxedElem = ((elem === null) ? null : elem);
-    elems$2.push(unboxedElem);
-    i$1 = ((1 + i$1) | 0)
-  };
-  var path = $makeNativeArrayWrapper($d_Lmain_scala_LocationOptions.getArrayOf(), elems$2);
-  var $$this = $m_s_Predef$().genericArrayOps__O__scm_ArrayOps(path);
-  if ($is_sjs_js_ArrayOps($$this)) {
-    var x2 = $as_sjs_js_ArrayOps($$this);
-    return x2.scala$scalajs$js$ArrayOps$$array$f
-  } else if ($is_sjs_js_WrappedArray($$this)) {
-    var x3 = $as_sjs_js_WrappedArray($$this);
-    return x3.array$6
-  } else {
-    var result$1 = [];
-    var i$2 = 0;
-    var len$3 = $$this.length__I();
-    while ((i$2 < len$3)) {
-      var arg1$1 = $$this.apply__I__O(i$2);
-      $uI(result$1.push(arg1$1));
-      i$2 = ((1 + i$2) | 0)
-    };
-    return result$1
-  }
-});
-$c_Lmain_scala_HelloWorld$.prototype.$$js$exported$meth$testCollision__Lmain_scala_CollisionOptions__O = (function(options) {
-  return this.testCollision__Lmain_scala_CollisionOptions__Z(options)
-});
-$c_Lmain_scala_HelloWorld$.prototype.$$js$exported$meth$main__O = (function() {
-  var this$2 = $m_s_Console$();
-  var this$3 = $as_Ljava_io_PrintStream(this$2.outVar$2.v$1);
-  this$3.java$lang$JSConsoleBasedPrintStream$$printString__T__V("Hello world!\n")
-});
-$c_Lmain_scala_HelloWorld$.prototype.pathfinding__AT__Lmain_scala_Location__Lmain_scala_Location__ALmain_scala_Location = (function(mapTile, origin, destin) {
-  var score = this.scoreCal__AT__Lmain_scala_Location__Lmain_scala_Location__I(mapTile, origin, destin);
-  if ((score !== 0)) {
-    var up = new $c_Lmain_scala_Location().init___I__I(origin.x$1, (((-1) + origin.y$1) | 0));
-    var down = new $c_Lmain_scala_Location().init___I__I(origin.x$1, ((1 + origin.y$1) | 0));
-    var left = new $c_Lmain_scala_Location().init___I__I((((-1) + origin.x$1) | 0), origin.y$1);
-    var right = new $c_Lmain_scala_Location().init___I__I(((1 + origin.x$1) | 0), origin.y$1);
-    var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array([up, down, left, right]);
-    var len = $uI(xs.array$6.length);
-    var array = $newArrayObject($d_Lmain_scala_Location.getArrayOf(), [len]);
-    var elem$1 = 0;
-    elem$1 = 0;
-    var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
-    while (this$4.hasNext__Z()) {
-      var arg1 = this$4.next__O();
-      array.set(elem$1, arg1);
-      elem$1 = ((1 + elem$1) | 0)
-    };
-    if ((array.u.length === 0)) {
-      if ((array.u.length === 0)) {
-        throw new $c_jl_UnsupportedOperationException().init___T("empty.tail")
-      };
-      var until = array.u.length;
-      var x = ((until > 0) ? until : 0);
-      var y = array.u.length;
-      var hi = ((x < y) ? x : y);
-      var x$1 = (((-1) + hi) | 0);
-      var size = ((x$1 > 0) ? x$1 : 0);
-      var result = $newArrayObject($d_Lmain_scala_Location.getArrayOf(), [size]);
-      if ((size > 0)) {
-        $m_s_Array$().copy__O__I__O__I__I__V(array, 1, result, 0, size)
-      };
-      var xs$1 = result
-    } else {
-      var until$1 = array.u.length;
-      var x$2 = ((until$1 > 0) ? until$1 : 0);
-      var y$1 = array.u.length;
-      var hi$1 = ((x$2 < y$1) ? x$2 : y$1);
-      var x$3 = (((-1) + hi$1) | 0);
-      var size$1 = ((x$3 > 0) ? x$3 : 0);
-      var result$1 = $newArrayObject($d_Lmain_scala_Location.getArrayOf(), [size$1]);
-      if ((size$1 > 0)) {
-        $m_s_Array$().copy__O__I__O__I__I__V(array, 1, result$1, 0, size$1)
-      };
-      var xs$1 = result$1
-    };
-    var this$28 = new $c_scm_ArrayOps$ofRef().init___AO(array);
-    var z = $f_sc_IndexedSeqOptimized__head__O(this$28);
-    var start = 0;
-    var end = xs$1.u.length;
-    var z$1 = z;
-    var start$1 = start;
-    var z$2 = z$1;
-    var jsx$1;
-    _foldl: while (true) {
-      if ((start$1 !== end)) {
-        var temp$start = ((1 + start$1) | 0);
-        var arg1$1 = z$2;
-        var index = start$1;
-        var arg2 = xs$1.get(index);
-        var aPos = $as_Lmain_scala_Location(arg1$1);
-        var bPos = $as_Lmain_scala_Location(arg2);
-        var aScore = $m_Lmain_scala_HelloWorld$().scoreCal__AT__Lmain_scala_Location__Lmain_scala_Location__I(mapTile, aPos, destin);
-        var bScore = $m_Lmain_scala_HelloWorld$().scoreCal__AT__Lmain_scala_Location__Lmain_scala_Location__I(mapTile, bPos, destin);
-        var temp$z = ((aScore <= bScore) ? aPos : bPos);
-        start$1 = temp$start;
-        z$2 = temp$z;
-        continue _foldl
-      };
-      var jsx$1 = z$2;
-      break
-    };
-    var nextPosition = $as_Lmain_scala_Location(jsx$1);
-    var index$1 = (($imul(28, nextPosition.y$1) + nextPosition.x$1) | 0);
-    var sample = mapTile.get(index$1);
-    if (((sample !== "|") && (sample !== "!"))) {
-      var thisIndex = (($imul(28, origin.y$1) + origin.x$1) | 0);
-      mapTile.set(thisIndex, "!");
-      var path = this.pathfinding__AT__Lmain_scala_Location__Lmain_scala_Location__ALmain_scala_Location(mapTile, nextPosition, destin);
-      var n1 = ((1 + path.u.length) | 0);
-      var result$2 = $newArrayObject($d_Lmain_scala_Location.getArrayOf(), [n1]);
-      result$2.set(0, origin);
-      $m_s_Array$().copy__O__I__O__I__I__V(path, 0, result$2, 1, path.u.length);
-      return result$2
-    }
-  };
-  var xs$2 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([origin]);
-  var len$1 = $uI(xs$2.array$6.length);
-  var array$1 = $newArrayObject($d_Lmain_scala_Location.getArrayOf(), [len$1]);
-  var elem$1$1 = 0;
-  elem$1$1 = 0;
-  var this$37 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$2, 0, $uI(xs$2.array$6.length));
-  while (this$37.hasNext__Z()) {
-    var arg1$2 = this$37.next__O();
-    array$1.set(elem$1$1, arg1$2);
-    elem$1$1 = ((1 + elem$1$1) | 0)
-  };
-  return array$1
-});
-$c_Lmain_scala_HelloWorld$.prototype.testCollision__Lmain_scala_CollisionOptions__Z = (function(options) {
-  var array = options.mapTile;
-  var len = $uI(array.length);
-  var result = $newArrayObject($d_T.getArrayOf(), [len]);
-  var len$1 = result.u.length;
-  var i = 0;
-  var j = 0;
-  var x = $uI(array.length);
-  var x$1 = ((x < len$1) ? x : len$1);
-  var that = result.u.length;
-  var end = ((x$1 < that) ? x$1 : that);
-  while ((i < end)) {
-    var jsx$1 = j;
-    var index = i;
-    result.set(jsx$1, array[index]);
-    i = ((1 + i) | 0);
-    j = ((1 + j) | 0)
-  };
-  var location = options.location;
-  var index$1 = (($imul(28, $uI(location.y)) + $uI(location.x)) | 0);
-  var sample = result.get(index$1);
-  return ((sample !== "|") && (sample !== "#"))
-});
-$c_Lmain_scala_HelloWorld$.prototype.scoreCal__AT__Lmain_scala_Location__Lmain_scala_Location__I = (function(mapTile, origin, destin) {
-  var index = (($imul(28, origin.y$1) + origin.x$1) | 0);
-  var sample = mapTile.get(index);
-  if (((sample === "|") || ((sample === "!") || (sample === "#")))) {
-    return 2147483647
-  } else {
-    var deltaX = ((destin.x$1 - origin.x$1) | 0);
-    var deltaY = ((destin.y$1 - origin.y$1) | 0);
-    return ((((deltaX < 0) ? ((-deltaX) | 0) : deltaX) + ((deltaY < 0) ? ((-deltaY) | 0) : deltaY)) | 0)
-  }
-});
-$c_Lmain_scala_HelloWorld$.prototype.pathfinding = (function(arg$1) {
-  var prep0 = arg$1;
-  return this.$$js$exported$meth$pathfinding__Lmain_scala_PathFindingOptions__O(prep0)
-});
-$c_Lmain_scala_HelloWorld$.prototype.testCollision = (function(arg$1) {
-  var prep0 = arg$1;
-  return this.$$js$exported$meth$testCollision__Lmain_scala_CollisionOptions__O(prep0)
-});
-$c_Lmain_scala_HelloWorld$.prototype.main = (function() {
-  return this.$$js$exported$meth$main__O()
-});
-var $d_Lmain_scala_HelloWorld$ = new $TypeData().initClass({
-  Lmain_scala_HelloWorld$: 0
-}, false, "main.scala.HelloWorld$", {
-  Lmain_scala_HelloWorld$: 1,
-  O: 1
-});
-$c_Lmain_scala_HelloWorld$.prototype.$classData = $d_Lmain_scala_HelloWorld$;
-var $n_Lmain_scala_HelloWorld$ = (void 0);
-function $m_Lmain_scala_HelloWorld$() {
-  if ((!$n_Lmain_scala_HelloWorld$)) {
-    $n_Lmain_scala_HelloWorld$ = new $c_Lmain_scala_HelloWorld$().init___()
-  };
-  return $n_Lmain_scala_HelloWorld$
-}
-/** @constructor */
 function $c_Lmain_scala_Location() {
   $c_O.call(this);
   this.x$1 = 0;
@@ -1631,6 +1386,250 @@ var $d_Lmain_scala_Location = new $TypeData().initClass({
   O: 1
 });
 $c_Lmain_scala_Location.prototype.$classData = $d_Lmain_scala_Location;
+/** @constructor */
+function $c_Lmain_scala_MainObject$() {
+  $c_O.call(this)
+}
+$c_Lmain_scala_MainObject$.prototype = new $h_O();
+$c_Lmain_scala_MainObject$.prototype.constructor = $c_Lmain_scala_MainObject$;
+/** @constructor */
+function $h_Lmain_scala_MainObject$() {
+  /*<skip>*/
+}
+$h_Lmain_scala_MainObject$.prototype = $c_Lmain_scala_MainObject$.prototype;
+$c_Lmain_scala_MainObject$.prototype.init___ = (function() {
+  return this
+});
+$c_Lmain_scala_MainObject$.prototype.$$js$exported$meth$pathfinding__Lmain_scala_PathFindingOptions__O = (function(options) {
+  return this.pathfinding__Lmain_scala_PathFindingOptions__sjs_js_Array(options)
+});
+$c_Lmain_scala_MainObject$.prototype.pathfinding__AT__Lmain_scala_Location__Lmain_scala_Location__ALmain_scala_Location__ALmain_scala_Location = (function(mapTile, origin, destin, initiation) {
+  _pathfinding: while (true) {
+    if ((initiation.u.length === 8)) {
+      return initiation
+    };
+    var score = this.scoreCal__AT__Lmain_scala_Location__Lmain_scala_Location__I(mapTile, origin, destin);
+    var xs = initiation;
+    var elem = origin;
+    var n1 = ((1 + xs.u.length) | 0);
+    var result = $newArrayObject($d_Lmain_scala_Location.getArrayOf(), [n1]);
+    $m_s_Array$().copy__O__I__O__I__I__V(xs, 0, result, 0, xs.u.length);
+    result.set(xs.u.length, elem);
+    if ((score === 0)) {
+      return result
+    };
+    var up = new $c_Lmain_scala_Location().init___I__I(origin.x$1, (((-1) + origin.y$1) | 0));
+    var down = new $c_Lmain_scala_Location().init___I__I(origin.x$1, ((1 + origin.y$1) | 0));
+    var left = new $c_Lmain_scala_Location().init___I__I((((-1) + origin.x$1) | 0), origin.y$1);
+    var right = new $c_Lmain_scala_Location().init___I__I(((1 + origin.x$1) | 0), origin.y$1);
+    var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([up, down, left, right]);
+    var len = $uI(xs$1.array$6.length);
+    var array = $newArrayObject($d_Lmain_scala_Location.getArrayOf(), [len]);
+    var elem$1 = 0;
+    elem$1 = 0;
+    var this$7 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+    while (this$7.hasNext__Z()) {
+      var arg1 = this$7.next__O();
+      array.set(elem$1, arg1);
+      elem$1 = ((1 + elem$1) | 0)
+    };
+    if ((array.u.length === 0)) {
+      if ((array.u.length === 0)) {
+        throw new $c_jl_UnsupportedOperationException().init___T("empty.tail")
+      };
+      var until = array.u.length;
+      var x = ((until > 0) ? until : 0);
+      var y = array.u.length;
+      var hi = ((x < y) ? x : y);
+      var x$1 = (((-1) + hi) | 0);
+      var size = ((x$1 > 0) ? x$1 : 0);
+      var result$1 = $newArrayObject($d_Lmain_scala_Location.getArrayOf(), [size]);
+      if ((size > 0)) {
+        $m_s_Array$().copy__O__I__O__I__I__V(array, 1, result$1, 0, size)
+      };
+      var xs$2 = result$1
+    } else {
+      var until$1 = array.u.length;
+      var x$2 = ((until$1 > 0) ? until$1 : 0);
+      var y$1 = array.u.length;
+      var hi$1 = ((x$2 < y$1) ? x$2 : y$1);
+      var x$3 = (((-1) + hi$1) | 0);
+      var size$1 = ((x$3 > 0) ? x$3 : 0);
+      var result$2 = $newArrayObject($d_Lmain_scala_Location.getArrayOf(), [size$1]);
+      if ((size$1 > 0)) {
+        $m_s_Array$().copy__O__I__O__I__I__V(array, 1, result$2, 0, size$1)
+      };
+      var xs$2 = result$2
+    };
+    var this$31 = new $c_scm_ArrayOps$ofRef().init___AO(array);
+    var z = $f_sc_IndexedSeqOptimized__head__O(this$31);
+    var start = 0;
+    var end = xs$2.u.length;
+    var z$1 = z;
+    var start$1 = start;
+    var z$2 = z$1;
+    var jsx$1;
+    _foldl: while (true) {
+      if ((start$1 !== end)) {
+        var temp$start = ((1 + start$1) | 0);
+        var arg1$1 = z$2;
+        var index = start$1;
+        var arg2 = xs$2.get(index);
+        var aPos = $as_Lmain_scala_Location(arg1$1);
+        var bPos = $as_Lmain_scala_Location(arg2);
+        var aScore = $m_Lmain_scala_MainObject$().scoreCal__AT__Lmain_scala_Location__Lmain_scala_Location__I(mapTile, aPos, destin);
+        var bScore = $m_Lmain_scala_MainObject$().scoreCal__AT__Lmain_scala_Location__Lmain_scala_Location__I(mapTile, bPos, destin);
+        var temp$z = ((aScore <= bScore) ? aPos : bPos);
+        start$1 = temp$start;
+        z$2 = temp$z;
+        continue _foldl
+      };
+      var jsx$1 = z$2;
+      break
+    };
+    var nextPosition = $as_Lmain_scala_Location(jsx$1);
+    var index$1 = (($imul(28, nextPosition.y$1) + nextPosition.x$1) | 0);
+    var sample = mapTile.get(index$1);
+    if (((sample !== "|") && (sample !== "!"))) {
+      var thisIndex = (($imul(28, origin.y$1) + origin.x$1) | 0);
+      mapTile.set(thisIndex, "!");
+      origin = nextPosition;
+      initiation = result;
+      continue _pathfinding
+    } else {
+      return result
+    }
+  }
+});
+$c_Lmain_scala_MainObject$.prototype.pathfinding__Lmain_scala_PathFindingOptions__sjs_js_Array = (function(options) {
+  var array = options.mapTile;
+  var len = $uI(array.length);
+  var result = $newArrayObject($d_T.getArrayOf(), [len]);
+  var len$1 = result.u.length;
+  var i = 0;
+  var j = 0;
+  var x = $uI(array.length);
+  var x$1 = ((x < len$1) ? x : len$1);
+  var that = result.u.length;
+  var end = ((x$1 < that) ? x$1 : that);
+  while ((i < end)) {
+    var jsx$1 = j;
+    var index = i;
+    result.set(jsx$1, array[index]);
+    i = ((1 + i) | 0);
+    j = ((1 + j) | 0)
+  };
+  var origin = options.origin;
+  var destin = options.destin;
+  var originL = new $c_Lmain_scala_Location().init___I__I($uI(origin.x), $uI(origin.y));
+  var destinL = new $c_Lmain_scala_Location().init___I__I($uI(destin.x), $uI(destin.y));
+  var xs = this.pathfinding__AT__Lmain_scala_Location__Lmain_scala_Location__ALmain_scala_Location__ALmain_scala_Location(result, originL, destinL, $newArrayObject($d_Lmain_scala_Location.getArrayOf(), [0]));
+  var elems$2 = null;
+  elems$2 = [];
+  var x1 = xs.u.length;
+  switch (x1) {
+    case (-1): {
+      break
+    }
+  };
+  var i$1 = 0;
+  var len$2 = xs.u.length;
+  while ((i$1 < len$2)) {
+    var index$1 = i$1;
+    var arg1 = xs.get(index$1);
+    var sample = $as_Lmain_scala_Location(arg1);
+    var elem = sample.toJSObject__Lmain_scala_LocationOptions();
+    var unboxedElem = ((elem === null) ? null : elem);
+    elems$2.push(unboxedElem);
+    i$1 = ((1 + i$1) | 0)
+  };
+  var path = $makeNativeArrayWrapper($d_Lmain_scala_LocationOptions.getArrayOf(), elems$2);
+  var $$this = $m_s_Predef$().genericArrayOps__O__scm_ArrayOps(path);
+  if ($is_sjs_js_ArrayOps($$this)) {
+    var x2 = $as_sjs_js_ArrayOps($$this);
+    return x2.scala$scalajs$js$ArrayOps$$array$f
+  } else if ($is_sjs_js_WrappedArray($$this)) {
+    var x3 = $as_sjs_js_WrappedArray($$this);
+    return x3.array$6
+  } else {
+    var result$1 = [];
+    var i$2 = 0;
+    var len$3 = $$this.length__I();
+    while ((i$2 < len$3)) {
+      var arg1$1 = $$this.apply__I__O(i$2);
+      $uI(result$1.push(arg1$1));
+      i$2 = ((1 + i$2) | 0)
+    };
+    return result$1
+  }
+});
+$c_Lmain_scala_MainObject$.prototype.$$js$exported$meth$testCollision__Lmain_scala_CollisionOptions__O = (function(options) {
+  return this.testCollision__Lmain_scala_CollisionOptions__Z(options)
+});
+$c_Lmain_scala_MainObject$.prototype.$$js$exported$meth$main__O = (function() {
+  var this$2 = $m_s_Console$();
+  var this$3 = $as_Ljava_io_PrintStream(this$2.outVar$2.v$1);
+  this$3.java$lang$JSConsoleBasedPrintStream$$printString__T__V("Hello world!\n")
+});
+$c_Lmain_scala_MainObject$.prototype.testCollision__Lmain_scala_CollisionOptions__Z = (function(options) {
+  var array = options.mapTile;
+  var len = $uI(array.length);
+  var result = $newArrayObject($d_T.getArrayOf(), [len]);
+  var len$1 = result.u.length;
+  var i = 0;
+  var j = 0;
+  var x = $uI(array.length);
+  var x$1 = ((x < len$1) ? x : len$1);
+  var that = result.u.length;
+  var end = ((x$1 < that) ? x$1 : that);
+  while ((i < end)) {
+    var jsx$1 = j;
+    var index = i;
+    result.set(jsx$1, array[index]);
+    i = ((1 + i) | 0);
+    j = ((1 + j) | 0)
+  };
+  var location = options.location;
+  var index$1 = (($imul(28, $uI(location.y)) + $uI(location.x)) | 0);
+  var sample = result.get(index$1);
+  return ((sample !== "|") && (sample !== "#"))
+});
+$c_Lmain_scala_MainObject$.prototype.scoreCal__AT__Lmain_scala_Location__Lmain_scala_Location__I = (function(mapTile, origin, destin) {
+  var index = (($imul(28, origin.y$1) + origin.x$1) | 0);
+  var sample = mapTile.get(index);
+  if (((sample === "|") || ((sample === "!") || (sample === "#")))) {
+    return 2147483647
+  } else {
+    var deltaX = ((destin.x$1 - origin.x$1) | 0);
+    var deltaY = ((destin.y$1 - origin.y$1) | 0);
+    return ((((deltaX < 0) ? ((-deltaX) | 0) : deltaX) + ((deltaY < 0) ? ((-deltaY) | 0) : deltaY)) | 0)
+  }
+});
+$c_Lmain_scala_MainObject$.prototype.pathfinding = (function(arg$1) {
+  var prep0 = arg$1;
+  return this.$$js$exported$meth$pathfinding__Lmain_scala_PathFindingOptions__O(prep0)
+});
+$c_Lmain_scala_MainObject$.prototype.testCollision = (function(arg$1) {
+  var prep0 = arg$1;
+  return this.$$js$exported$meth$testCollision__Lmain_scala_CollisionOptions__O(prep0)
+});
+$c_Lmain_scala_MainObject$.prototype.main = (function() {
+  return this.$$js$exported$meth$main__O()
+});
+var $d_Lmain_scala_MainObject$ = new $TypeData().initClass({
+  Lmain_scala_MainObject$: 0
+}, false, "main.scala.MainObject$", {
+  Lmain_scala_MainObject$: 1,
+  O: 1
+});
+$c_Lmain_scala_MainObject$.prototype.$classData = $d_Lmain_scala_MainObject$;
+var $n_Lmain_scala_MainObject$ = (void 0);
+function $m_Lmain_scala_MainObject$() {
+  if ((!$n_Lmain_scala_MainObject$)) {
+    $n_Lmain_scala_MainObject$ = new $c_Lmain_scala_MainObject$().init___()
+  };
+  return $n_Lmain_scala_MainObject$
+}
 /** @constructor */
 function $c_jl_Class() {
   $c_O.call(this);
@@ -7990,7 +7989,6 @@ var $d_sjs_js_WrappedArray = new $TypeData().initClass({
   scm_Builder: 1
 });
 $c_sjs_js_WrappedArray.prototype.$classData = $d_sjs_js_WrappedArray;
-$e.MainObject = $m_Lmain_scala_HelloWorld$;
 $e.main = ($e.main || {});
 $e.main.scala = ($e.main.scala || {});
 /** @constructor */
@@ -8002,5 +8000,6 @@ $e.main.scala.Location = (function(arg$1, arg$2) {
   return $thiz
 });
 $e.main.scala.Location.prototype = $c_Lmain_scala_Location.prototype;
+$e.MainObject = $m_Lmain_scala_MainObject$;
 }).call(this);
 //# sourceMappingURL=scala-js-tutorial-fastopt.js.map

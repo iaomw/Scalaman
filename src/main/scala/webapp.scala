@@ -41,7 +41,7 @@ class Location(val x: Int, val y: Int) {
 }
 
 @JSExport("MainObject")
-object HelloWorld {
+object MainObject {
 
   @JSExport
   def main(): Unit = {
@@ -70,16 +70,20 @@ object HelloWorld {
     val originL = new Location(origin.x, origin.y)
     val destinL = new Location(destin.x, destin.y)
 
-    val path = pathfinding(mapTile, originL, destinL).map(sample => sample.toJSObject())
+    val path = pathfinding(mapTile, originL, destinL, new Array[Location](0)).map(sample => sample.toJSObject())
 
     return path.toJSArray
   }
 
-  def pathfinding(mapTile: Array[String], origin:Location, destin:Location): Array[Location] = {
+  def pathfinding(mapTile: Array[String], origin:Location, destin:Location, initiation: Array[Location]): Array[Location] = {
 
-    val score = scoreCal(mapTile, origin, destin);
+    // deepest
+    if (initiation.length == 8) { return initiation }
 
-    if (score != 0) {
+    val score = scoreCal(mapTile, origin, destin)
+
+    val visited = initiation :+ origin
+    if (score == 0) {return visited }
 
       val up = new Location(origin.x, origin.y-1)
       val down = new Location(origin.x, origin.y+1)
@@ -105,13 +109,10 @@ object HelloWorld {
       if (sample != "|" && sample != "!") {
         val thisIndex = origin.y * 28 + origin.x;
         mapTile(thisIndex) = "!" // Changing?
-
-        val path = pathfinding(mapTile, nextPosition, destin)
-        return origin +: path
+        return pathfinding(mapTile, nextPosition, destin, visited)
+      } else {
+        return visited
       }
-    }
-
-    return  Array[Location]{origin}
   }
 
   def scoreCal(mapTile: Array[String], origin: Location, destin: Location): Int = {
@@ -119,16 +120,16 @@ object HelloWorld {
     val index = origin.y * 28 + origin.x
     val sample = mapTile(index)
 
-    sample match {
-      case "|" | "!" | "#" => Int.MaxValue
-      case _ => {
-        
-        val deltaX = destin.x - origin.x
-        val deltaY = destin.y - origin.y
+        sample match {
+          case "|" | "!" | "#" => Int.MaxValue
+          case _ => {
+            
+            val deltaX = destin.x - origin.x
+            val deltaY = destin.y - origin.y
 
-        return Math.abs(deltaX) + Math.abs(deltaY)
-      }
-    }
+            return Math.abs(deltaX) + Math.abs(deltaY)
+          }
+        }
   }
 }
 
