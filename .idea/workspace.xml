@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="483b383f-4369-4eb4-bb0c-e6496f62a78d" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/main/scala/HelloWorld$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/main/scala/HelloWorld$.sjsir" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/main/scala/HelloWorld.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/main/scala/MainObject$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/main/scala/MainObject$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/main/scala/MainObject$.sjsir" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/main/scala/MainObject$.sjsir" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/output_dsp" afterPath="$PROJECT_DIR$/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/output_dsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/$global/$global/sjsirFilesOnClasspath/data" afterPath="$PROJECT_DIR$/target/streams/compile/$global/$global/sjsirFilesOnClasspath/data" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/fastOptJS/$global/streams/in-cache" afterPath="$PROJECT_DIR$/target/streams/compile/fastOptJS/$global/streams/in-cache" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/many.htm" afterPath="$PROJECT_DIR$/many.htm" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/webapp.scala" afterPath="$PROJECT_DIR$/src/main/scala/webapp.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/.history" afterPath="$PROJECT_DIR$/target/.history" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/scala-js-tutorial-fastopt.js" afterPath="$PROJECT_DIR$/target/scala-2.12/scala-js-tutorial-fastopt.js" />
@@ -46,11 +45,9 @@
       <file leaf-file-name="webapp.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/webapp.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-40">
-              <caret line="43" column="17" lean-forward="false" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
-              <folding>
-                <element signature="e#2204#2434#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="1199">
+              <caret line="129" column="39" lean-forward="true" selection-start-line="129" selection-start-column="39" selection-end-line="129" selection-end-column="39" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -75,8 +72,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="198" />
-    <option name="y" value="23" />
+    <option name="x" value="249" />
+    <option name="y" value="96" />
     <option name="width" value="1203" />
     <option name="height" value="877" />
   </component>
@@ -277,7 +274,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="198" y="23" width="1203" height="877" extended-state="0" />
+    <frame x="249" y="96" width="1203" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -338,11 +335,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/webapp.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-40">
-          <caret line="43" column="17" lean-forward="false" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
-          <folding>
-            <element signature="e#2204#2434#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="1199">
+          <caret line="129" column="39" lean-forward="true" selection-start-line="129" selection-start-column="39" selection-end-line="129" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>

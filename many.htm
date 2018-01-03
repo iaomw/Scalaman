@@ -46,7 +46,7 @@ var tryDIR = function (dir) {
 var update = function() {
         var pact = pacman.itile();
         if(mask[pact.y*28+pact.x] == "#") {
-            paused = true;
+            paused = true; return;
         }
 
         var pac_delta = tryDIR(pacman.dirEnum); 
@@ -97,13 +97,17 @@ var update = function() {
             });
 
             if (could) {
-                mask[gNext.y*28+gNext.x] = '#';
+                mask[gNext.y*28+gNext.x] = "#";
                 mask[gTile.y*28+gTile.x] = " ";
                 g.ftile = gNext;
             } else {
                 mask[gTile.y*28+gTile.x] = "#";
                 newPath();
             } 
+        }
+
+        if(mask[pact.y*28+pact.x] == "#") {
+            paused = true; return;
         }
     };
 
@@ -164,12 +168,6 @@ document.onkeydown = function(e) {
             break;
     }
 };
-
-// pacman.dirEnum = DIR_LEFT;
-// pacman.pixel = {
-//     x: 14*tileSize-1,
-//     y: 26*tileSize + midTile.y,
-// };
 
 </script>
 </body>

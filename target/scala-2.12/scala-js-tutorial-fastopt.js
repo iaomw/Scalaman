@@ -1405,10 +1405,12 @@ $c_Lmain_scala_MainObject$.prototype.$$js$exported$meth$pathfinding__Lmain_scala
 });
 $c_Lmain_scala_MainObject$.prototype.pathfinding__AT__Lmain_scala_Location__Lmain_scala_Location__ALmain_scala_Location__ALmain_scala_Location = (function(mapTile, origin, destin, initiation) {
   _pathfinding: while (true) {
-    if ((initiation.u.length === 8)) {
+    if ((initiation.u.length === 16)) {
       return initiation
     };
     var score = this.scoreCal__AT__Lmain_scala_Location__Lmain_scala_Location__I(mapTile, origin, destin);
+    var thisIndex = (($imul(28, origin.y$1) + origin.x$1) | 0);
+    mapTile.set(thisIndex, "!");
     var xs = initiation;
     var elem = origin;
     var n1 = ((1 + xs.u.length) | 0);
@@ -1491,8 +1493,6 @@ $c_Lmain_scala_MainObject$.prototype.pathfinding__AT__Lmain_scala_Location__Lmai
     var index$1 = (($imul(28, nextPosition.y$1) + nextPosition.x$1) | 0);
     var sample = mapTile.get(index$1);
     if (((sample !== "|") && (sample !== "!"))) {
-      var thisIndex = (($imul(28, origin.y$1) + origin.x$1) | 0);
-      mapTile.set(thisIndex, "!");
       origin = nextPosition;
       initiation = result;
       continue _pathfinding

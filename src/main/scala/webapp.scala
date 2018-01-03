@@ -78,9 +78,12 @@ object MainObject {
   def pathfinding(mapTile: Array[String], origin:Location, destin:Location, initiation: Array[Location]): Array[Location] = {
 
     // deepest
-    if (initiation.length == 8) { return initiation }
+    if (initiation.length == 16) { return initiation }
 
     val score = scoreCal(mapTile, origin, destin)
+
+    val thisIndex = origin.y * 28 + origin.x;
+    mapTile(thisIndex) = "!"
 
     val visited = initiation :+ origin
     if (score == 0) {return visited }
@@ -107,8 +110,8 @@ object MainObject {
       val sample = mapTile(index)
 
       if (sample != "|" && sample != "!") {
-        val thisIndex = origin.y * 28 + origin.x;
-        mapTile(thisIndex) = "!" // Changing?
+        //val thisIndex = origin.y * 28 + origin.x;
+        //mapTile(thisIndex) = "!" // Changing?
         return pathfinding(mapTile, nextPosition, destin, visited)
       } else {
         return visited
