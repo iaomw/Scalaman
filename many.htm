@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="./target/scala-2.12/scala-js-tutorial-jsdeps.js"></script>
+<script type="text/javascript" src="./target/scala-2.12/scala-js-tutorial-fastopt.js"></script>
+
+<script src="mapgen.js"></script>
+<script src="colors.js"></script>
+<script src="Map.js"></script>
+<script src="man.js"></script>
+</head>
+<body>
+<canvas id='canvas'></canvas>
+
+<script>
+var paused = false;
+var map = mapgen();
+var mask = map.currentTiles.slice();
+
+
+for (i=0; i<36; i++) {
+    var zz=''; 
+    for (j=0;j<28; j++) { 
+        zz += map.currentTiles[i*28+j];
+    } 
+    console.log(zz);
+}
+
+var allDIR = [DIR_UP, DIR_DOWN, DIR_LEFT, DIR_RIGHT];
+
+var tryDIR = function (dir) {
+    switch(dir) {
+        case DIR_UP:
+            return {x:0, y:-1};
+        case DIR_DOWN:
+            return {x:0, y:1};
+        case DIR_LEFT:
+            return {x:-1, y:0};
+        case DIR_RIGHT:
+            return {x:1, y:0};
+        default:
+            return {x:0, y:0};
+    }
+};
+
+var update = function() {
+        var pact = pacman.itile();
+        if(mask[pact.y*28+pact.x] == "#") {
+            paused = true;
+        }
+
+        var pac_delta = tryDIR(pacman.dirEnum); 
+
+        var pTileX = pact.x + pac_delta.x;
+        var pTileY = pact.y + pac_delta.y;
+
+        var could = MainObject().testCollision({
+            mapTile: map.currentTiles,
+            location: {x: pTileX, y: pTileY}
+        });
+
+        if (could) {
+            pacman.ftile.x = pTileX;
+            pacman.ftile.y = pTileY;
+
+            if (map.currentTiles[pTileY*28+pTileX] == ".") {
+                map.currentTiles[pTileY*28+pTileX] = ""
+                pacman.score += 1;
+                //console.log(pacman.score);
+            }
+        }
+
+        var i=0;
+        for (i=0; i<4; i++) {
+
+            var g = ghosts[i];
+            var gTile = g.ftile;
+
+            var newPath = function() {
+                var gPath = MainObject().pathfinding({
+                    mapTile: mask, 
+                    origin: gTile, 
+                    destin: pacman.ftile
+                });
+                g.path = gPath;
+            }
+
+            if (g.path == undefined || g.path.length == 0) {
+                newPath();
+            }
+
+            var gNext = g.path.shift();
+
+            could = MainObject().testCollision({
+                mapTile: map.currentTiles,
+                location: gNext
+            });
+
+            if (could) {
+                mask[gNext.y*28+gNext.x] = '#';
+                mask[gTile.y*28+gTile.x] = " ";
+                g.ftile = gNext;
+            } else {
+                mask[gTile.y*28+gTile.x] = "#";
+                newPath();
+            } 
+        }
+    };
+
+var draw = function() {
+
+    var canvas = document.getElementById('canvas');
+    
+    var w,h;
+    var rows = 2;
+    var cols = 2;
+    w = 28*8; h = 36*8;
+    canvas.width = w*cols;
+    canvas.height = h*rows;
+
+    var ctx = canvas.getContext('2d');
+    
+    ctx.scale(2, 2);
+
+    var render = function() {
+        //ctx.clearRect(0, 0, canvas.width, canvas.height);
+        if (!paused) {
+            map.draw(ctx,0,0);
+            update(); drawActors(ctx);
+        }; 
+        
+        setTimeout(function(){ 
+            requestAnimationFrame(render);
+        }, 1000/10);
+    };
+    render();
+};
+
+window.onload = function() {
+    draw();
+};
+
+document.onkeydown = function(e) {
+
+    switch (e.keyCode) {
+        case 32:
+            paused = !paused;
+            break;
+        case 37:
+            //alert('left');
+            pacman.dirEnum = DIR_LEFT;
+            break;
+        case 38:
+            //alert('up');
+            pacman.dirEnum = DIR_UP;
+            break;
+        case 39:
+            //alert('right');
+            pacman.dirEnum = DIR_RIGHT;
+            break;
+        case 40:
+            //alert('down');
+            pacman.dirEnum = DIR_DOWN;
+            break;
+    }
+};
+
+// pacman.dirEnum = DIR_LEFT;
+// pacman.pixel = {
+//     x: 14*tileSize-1,
+//     y: 26*tileSize + midTile.y,
+// };
+
+</script>
+</body>
+</html>

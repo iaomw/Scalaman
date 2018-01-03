@@ -1,0 +1,19 @@
+[0m[[0minfo[0m] [0mFull optimizing /Users/iaomw/Scalaman/target/scala-2.12/scala-js-tutorial-opt.js[0m
+[0m[[0mdebug[0m] [0mLinker: Compute reachability: 77641 us[0m
+[0m[[0mdebug[0m] [0mLinker: Assemble LinkedClasses: 148296 us[0m
+[0m[[0mdebug[0m] [0mBasic Linking: 232950 us[0m
+[0m[[0mdebug[0m] [0mInc. optimizer: Batch mode: true[0m
+[0m[[0mdebug[0m] [0mInc. optimizer: Incremental part: 39683 us[0m
+[0m[[0mdebug[0m] [0mInc. optimizer: Optimizing 892 methods.[0m
+[0m[[0mdebug[0m] [0mInc. optimizer: Optimizer part: 215324 us[0m
+[0m[[0mdebug[0m] [0mInc. optimizer: 263597 us[0m
+[0m[[0mdebug[0m] [0mRefiner: Compute reachability: 26336 us[0m
+[0m[[0mdebug[0m] [0mRefiner: Assemble LinkedClasses: 5047 us[0m
+[0m[[0mdebug[0m] [0mRefiner: 32636 us[0m
+[0m[[0mdebug[0m] [0mEmitter: Class tree cache stats: reused: 39 -- invalidated: 46[0m
+[0m[[0mdebug[0m] [0mEmitter: Method tree cache stats: resued: 0 -- invalidated: 107[0m
+[0m[[0mdebug[0m] [0mEmitter (create Closure trees): 129562 us[0m
+[0m[[0minfo[0m] [0mClosure: 0 error(s), 0 warning(s)[0m
+[0m[[0mdebug[0m] [0mClosure: Compiler pass: 1373266 us[0m
+[0m[[0mdebug[0m] [0mClosure: Write result: 92880 us[0m
+[0m[[0mdebug[0m] [0mGlobal IR cache stats: reused: 0 -- invalidated: 3 -- trees read: 262[0m
